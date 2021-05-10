@@ -47,7 +47,7 @@ jobs:
                       test/target/temp/gdal
 
             - name: Run install
-              run: mvn install; mvn exec:java@install-gdal-it
+              run: mvn package; mvn exec:java@install-gdal-it
 
             - name: Run test
               run: mvn exec:exec@test-gdal
