@@ -40,48 +40,39 @@
 				<version>1.2.1</version>
 				<executions>
 					<execution>
-						<id>install-gdal-IT</id>
+						<id>install-gdal-it</id>
 						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>java</goal>
 						</goals>
-				<configuration>
-					<mainClass>
-						InstallGdal
-					</mainClass>
-					<arguments>
-						<argument>${gdal.dir}</argument>
-					</arguments>
-				</configuration>
+						<configuration>
+							<mainClass>InstallGdal</mainClass>
+							<arguments>
+								<argument>${gdal.dir}</argument>
+							</arguments>
+						</configuration>
 					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<executions>
 					<execution>
 						<id>test-gdal</id>
 						<goals>
 							<goal>exec</goal>
 						</goals>
-				<configuration>
-					<executable>java</executable>
-					<arguments>
-						<argument>-classpath</argument>
-						<!-- automatically creates the classpath using all project dependencies, 
-							also adding the project build directory -->
-						<classpath />
-						<argument>TestGdal</argument>
-					</arguments>
+						<configuration>
+							<executable>java</executable>
+							<arguments>
+								<argument>-classpath</argument>
+								<!-- automatically creates the classpath using all project dependencies, 
+									also adding the project build directory -->
+								<classpath />
+								<argument>TestGdal</argument>
+							</arguments>
 
-					<environmentVariables>
-						<LD_LIBRARY_PATH>${gdal.dir}${path.separator}${env.LD_LIBRARY_PATH}</LD_LIBRARY_PATH>
-						<PATH>${gdal.dir}${path.separator}${env.PATH}</PATH>
-						<GDAL_DIR>${gdal.dir}</GDAL_DIR>
-					</environmentVariables>
-				</configuration>
+							<environmentVariables>
+								<LD_LIBRARY_PATH>${gdal.dir}${path.separator}${env.LD_LIBRARY_PATH}</LD_LIBRARY_PATH>
+								<PATH>${gdal.dir}${path.separator}${env.PATH}</PATH>
+								<GDAL_DIR>${gdal.dir}</GDAL_DIR>
+							</environmentVariables>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
