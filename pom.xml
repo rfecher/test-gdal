@@ -41,7 +41,6 @@
 				<executions>
 					<execution>
 						<id>install-gdal-it</id>
-						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>java</goal>
 						</goals>
