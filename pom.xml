@@ -45,16 +45,16 @@
 						<goals>
 							<goal>java</goal>
 						</goals>
+						<configuration>
+							<mainClass>
+								InstallGdal
+							</mainClass>
+							<arguments>
+								<argument>${gdal.dir}</argument>
+							</arguments>
+						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<mainClass>
-						InstallGdal
-					</mainClass>
-					<arguments>
-						<argument>${gdal.dir}</argument>
-					</arguments>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -66,24 +66,24 @@
 						<goals>
 							<goal>exec</goal>
 						</goals>
+						<configuration>
+							<executable>java</executable>
+							<arguments>
+								<argument>-classpath</argument>
+								<!-- automatically creates the classpath using all project dependencies, 
+									also adding the project build directory -->
+								<classpath />
+								<argument>TestGdal</argument>
+							</arguments>
+
+							<environmentVariables>
+								<LD_LIBRARY_PATH>${gdal.dir}${path.separator}${env.LD_LIBRARY_PATH}</LD_LIBRARY_PATH>
+								<PATH>${gdal.dir}${path.separator}${env.PATH}</PATH>
+								<GDAL_DIR>${gdal.dir}</GDAL_DIR>
+							</environmentVariables>
+						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<executable>java</executable>
-					<arguments>
-						<argument>-classpath</argument>
-						<!-- automatically creates the classpath using all project dependencies, 
-							also adding the project build directory -->
-						<classpath />
-						<argument>TestGdal</argument>
-
-						<environmentVariables>
-							<LD_LIBRARY_PATH>${gdal.dir}${path.separator}${env.LD_LIBRARY_PATH}</LD_LIBRARY_PATH>
-							<PATH>${gdal.dir}${path.separator}${env.PATH}</PATH>
-							<GDAL_DIR>${gdal.dir}</GDAL_DIR>
-						</environmentVariables>
-					</arguments>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
