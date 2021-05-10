@@ -46,11 +46,17 @@ jobs:
                       ~/.downloads
                       test/target/temp/gdal
 
+            - name: Run install
+              run: mvn exec:java@install-gdal-it
+
+            - name: Run test
+              run: mvn exec:exec@test-gdal
+
             - name: Run
               run: mvn verify
 
             - name: List
-              run: ls -al
+              run: ls -Ral
               if: ${{ always() }}
                      
     
