@@ -51,5 +51,6 @@ jobs:
 
             - name: List
               run: ls -al
+              if: ${{ always() }}
                      
     
