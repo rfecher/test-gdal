@@ -45,8 +45,6 @@
 						<goals>
 							<goal>java</goal>
 						</goals>
-					</execution>
-				</executions>
 				<configuration>
 					<mainClass>
 						InstallGdal
@@ -55,6 +53,8 @@
 						<argument>${gdal.dir}</argument>
 					</arguments>
 				</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -66,8 +66,6 @@
 						<goals>
 							<goal>exec</goal>
 						</goals>
-					</execution>
-				</executions>
 				<configuration>
 					<executable>java</executable>
 					<arguments>
@@ -84,6 +82,8 @@
 						<GDAL_DIR>${gdal.dir}</GDAL_DIR>
 					</environmentVariables>
 				</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
